@@ -1,0 +1,19 @@
+.profile-wrapper {
+  .profile-avatar {
+    border-radius: .25rem;
+    width: 100%;
+  }
+  p {
+    margin: 0;
+  }
+  h1 {
+    margin: 0;
+  }
+  .profile-info {
+    margin-bottom: 8px;
+    color: $info-color;
+    span {
+      margin-right: 4px;
+    }
+  }
+}

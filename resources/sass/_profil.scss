@@ -1,0 +1,13 @@
+.croppie-container {
+  height: auto;
+}
+
+.cropper-wrapper {
+  #browseFileInput {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -1000;
+    visibility: hidden;
+  }
+}

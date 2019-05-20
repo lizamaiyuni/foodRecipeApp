@@ -1,0 +1,136 @@
+body {
+  background-color: $background-color;
+  color: $on-background-color;
+}
+
+.search-wrapper {
+  .search-toggle {
+    margin-bottom: 8px;
+    .btn {
+      border-radius: 20px;
+      background: $secondary-color;
+      border-color: $secondary-color;
+      &.active {
+        background: $secondary-color-v;
+        border-color: $secondary-color-v;
+      }
+      img {
+        width: 15px;
+      }
+      &:first-of-type{
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      &:last-of-type{
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+  .search-bar {
+    @include depth(1);
+    width: 100%;
+    display: flex;
+    border-radius: .25rem;
+    background-color: #ffff;
+    padding: 15px 20px;
+    .search-input {
+      flex: 1;
+      border: 0;
+      background-color: transparent;
+      padding: 0;
+    }
+    .search-icon {
+      border: 0;
+      background-color: transparent;
+      color: $secondary-color;
+      padding: 0;
+      .fa-search {
+        font-size: 18px;
+      }
+    }
+    .tagify__input {
+      margin: 1px 5px;
+      padding: 0;
+    }
+    .tagify__tag {
+      margin: 2px 0 2px 2px;
+      &>div {
+        padding: .05em .5em;
+        .tagify__tag-text {
+              padding: 0 12px 0 0;
+        }
+      }
+      &:hover:not([readonly]) div::before {
+        top: -0.5px;
+        right: -0.5px;
+        bottom: -0.5px;
+        left: -0.5px;
+      }
+    }
+  }
+}
+
+.tagify__tag:hover:not([readonly]) div::before {
+
+}
+
+.navbar {
+  @include depth(1);
+  background-color: $primary-color;
+  .navbar-dark {
+    color: $on-primary-color;
+  }
+}
+
+.card-thumbnail {
+  border: 0;
+  background-color: transparent !important;
+  .card-img-top {
+    width: 100%;
+    // border-radius: calc(0.25rem - 1px);
+  }
+  .card-body {
+    padding: 10px;
+    p {
+      margin: 0;
+    }
+    .recipe-author {
+      color: $info-color;
+    }
+    .recipe-action {
+      display: flex;
+      justify-content: flex-end;
+      .btn {
+        padding: 0 12px;
+        font-size: 16px;
+        .fa {
+          color: $info-color;
+        }
+        &:hover {
+          .fa {
+            color: $on-background-color;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+.card {
+  border: 0;
+  @include depth(1);
+}
+
+.btn-primary{
+  float: right;
+  background: $primary-color;
+  color: $on-primary-color;
+  border-color: $primary-color;
+  &:hover {
+    background: $primary-color-v;
+    color: $on-primary-color;
+    border-color: $primary-color-v;
+  }
+}
