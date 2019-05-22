@@ -6,20 +6,46 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    /**
-    * Menampilkan halaman edit profil
-    */
-    public function editProfile()
+    public function indexprofil()
     {
-      // code...
+        return view('user-profile', array('user' => Auth::user()) );
     }
+
+    public function editProfile(Request $request)
+    {
+      if($request->hasFile('avatar'))
+        {
+            $avatar = $request->file('avatar');
+            $filename = time().'.'.$avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save(public_path)('/img/upload/avatar'.$filename);
+
+            $user = Auth::user();
+            $user->avatar = $filename;
+            $user->save();
+        }
+        request view('user-profile', array('user' => Auth::user()));
+    }
+
 
     /**
     * Mengupdate profil
     */
     public function updateProfile()
     {
-      // code...
+        $this->validate($request,[
+          'name' => 'required|max:255',
+          'username' => 'required|min:3|max:20|unique:users',
+          'password' => 'required|min:6|confirmed',
+        ]);
+
+        Auth::user()->update([
+           'name' => $request->name,
+           'username' => $request->username,
+           'password' => $request->password
+        ]);
+
+        return redirect('/edit-profil');
+}
     }
 
     /**
